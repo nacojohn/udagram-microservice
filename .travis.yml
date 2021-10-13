@@ -16,14 +16,14 @@ script:
   - docker build -t udagram-api-user ./udagram-api-user
   - docker tag udagram-api-user nacojohn/udagram-api-user:v1
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag udagram-frontend nacojohn/udagram-frontend:v1
+  - docker tag udagram-frontend nacojohn/udagram-frontend:v2
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
-  - docker tag udagram-reverseproxy nacojohn/udagram-reverseproxy:v1
+  - docker tag udagram-reverseproxy nacojohn/udagram-reverseproxy:v2-fix
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push nacojohn/udagram-api-feed:v1
   - docker push nacojohn/udagram-api-user:v1
-  - docker push nacojohn/udagram-frontend:v1
-  - docker push nacojohn/udagram-reverseproxy:v1
+  - docker push nacojohn/udagram-frontend:v2
+  - docker push nacojohn/udagram-reverseproxy:v2-fix
 
