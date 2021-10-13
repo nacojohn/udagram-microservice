@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: image-udagram-reverseproxy
-        image: nacojohn/udagram-reverseproxy:v1
+        image: nacojohn/udagram-reverseproxy:v2
         ports:
         - containerPort: 8080
         livenessProbe:
