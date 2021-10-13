@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend-feed-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: backend-feed-app
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: image-udagram-feed
-        image: nacojohn/udagram-api-feed:v1
+        image: nacojohn/udagram-api-feed:v2
         env:
         - name: URL
           valueFrom:
@@ -48,4 +48,11 @@ spec:
             secretKeyRef:
               name: env-secret
               key: POSTGRES_USERNAME
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m" 
       restartPolicy: Always
