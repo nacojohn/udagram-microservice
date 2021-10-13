@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: image-frontend
-        image: nacojohn/udagram-frontend:v1
+        image: nacojohn/udagram-frontend:v2
         ports:
         - containerPort: 80
