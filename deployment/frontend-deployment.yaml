@@ -18,7 +18,7 @@ spec:
       - name: image-frontend
         image: nacojohn/udagram-frontend:v3
         ports:
-        - containerPort: 80
+        - containerPort: 8100
         resources:
           requests:
             memory: "64Mi"
