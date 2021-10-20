@@ -48,6 +48,10 @@ spec:
             secretKeyRef:
               name: env-secret
               key: POSTGRES_USERNAME
+        volumeMounts:
+        - name: aws-secret
+          mountPath: "/root/.aws/"
+          readOnly: true 
         resources:
           requests:
             memory: "64Mi"
@@ -56,3 +60,7 @@ spec:
             memory: "1024Mi"
             cpu: "500m" 
       restartPolicy: Always
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: aws-secret 
